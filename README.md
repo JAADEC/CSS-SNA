@@ -40,8 +40,7 @@ python3 -m venv .venv
 
 Additionally, click the prompt to select the newly created virtual environment in vs code.
 
-#### Install dependencies
-All necessary dependencies are stored in `setup.py` and can be installed by first activating your virtual environment, like so:
+#### Activate virtual environment
 
 On Linux, Unix or MacOS, using the terminal or bash shell:
 ```
@@ -66,7 +65,11 @@ On Windows using PowerShell:
 
 After activating the environment it should be shown by `(.venv)` in front of your directory.
 
-Now all dependencies can be installed by running the following command:
+#### Deactivate virtual environment
+
+
+#### Install dependencies
+All necessary dependencies are stored in `setup.py` and can be installed by first activating your virtual environment (see above). Now all dependencies can be installed by running the following command:
 
 ```
 pip install .
