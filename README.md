@@ -66,7 +66,20 @@ On Windows using PowerShell:
 After activating the environment it should be shown by `(.venv)` in front of your directory.
 
 #### Deactivate virtual environment
+When the virtual environment is activated (when the environment is showing in front of your directory in the terminal), you can deactivate it with the following command:
 
+On Linux, Unix or MacOS, using the terminal or bash shell:
+```
+deactivate
+```
+On Windows using the Command Prompt:
+```
+.venv\Scripts\deactivate.bat
+```
+On Windows using PowerShell:
+```
+deactivate
+```
 
 #### Install dependencies
 All necessary dependencies are stored in `setup.py` and can be installed by first activating your virtual environment (see above). Now all dependencies can be installed by running the following command:
