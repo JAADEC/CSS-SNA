@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-08">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="relevance_score" type="double" />
+      <attribute id="1" title="publication_date" type="string" />
+      <attribute id="2" title="first_author" type="string" />
+    </attributes>
+    <nodes>
+      <node id="https://openalex.org/W2085385208" label="Sacrifice and Stigma: Reducing Free-riding in Cults, Communes, and Other Collectives - Laurence R. Iannaccone">
+        <attvalues>
+          <attvalue for="0" value="11.354071" />
+          <attvalue for="1" value="1992-04-01" />
+          <attvalue for="2" value="Laurence R. Iannaccone" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1988922041" label="Poverty, the Coup Trap, and the Seizure of Executive Power - John Londregan">
+        <attvalues>
+          <attvalue for="0" value="11.147017" />
+          <attvalue for="1" value="1990-01-01" />
+          <attvalue for="2" value="John Londregan" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2159191507" label="On economic causes of civil war - Paul Collier">
+        <attvalues>
+          <attvalue for="0" value="45.798595" />
+          <attvalue for="1" value="1998-10-01" />
+          <attvalue for="2" value="Paul Collier" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2083051110" label="Rationalizing Revolutionary Ideology - John E. Roemer">
+        <attvalues>
+          <attvalue for="0" value="9.45489" />
+          <attvalue for="1" value="1985-01-01" />
+          <attvalue for="2" value="John E. Roemer" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1990264030" label="Personal Influence, Collective Rationality, and Mass Political Action - Steven E. Finkel">
+        <attvalues>
+          <attvalue for="0" value="13.977874" />
+          <attvalue for="1" value="1989-09-01" />
+          <attvalue for="2" value="Steven E. Finkel" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2164079995" label="International organization: a state of the art on an art of the state - Friedrich Kratochwil">
+        <attvalues>
+          <attvalue for="0" value="10.794349" />
+          <attvalue for="1" value="1986-01-01" />
+          <attvalue for="2" value="Friedrich Kratochwil" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2138057253" label="Rational Choice and Rebellious Collective Action - Edward N. Muller">
+        <attvalues>
+          <attvalue for="0" value="260.524" />
+          <attvalue for="1" value="1986-06-01" />
+          <attvalue for="2" value="Edward N. Muller" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2020965062" label="Growth Recurring: Economic Change in World History. - Geoffrey McNicoll">
+        <attvalues>
+          <attvalue for="0" value="9.755293" />
+          <attvalue for="1" value="1989-06-01" />
+          <attvalue for="2" value="Geoffrey McNicoll" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2031873264" label="Proprietary public finance and economic welfare - Herschel I. Grossman">
+        <attvalues>
+          <attvalue for="0" value="4.2391706" />
+          <attvalue for="1" value="1994-02-01" />
+          <attvalue for="2" value="Herschel I. Grossman" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2154285995" label="Discontent and the Expected Utility of Rebellion: The Case of Peru - Edward N. Muller">
+        <attvalues>
+          <attvalue for="0" value="8.702938" />
+          <attvalue for="1" value="1991-12-01" />
+          <attvalue for="2" value="Edward N. Muller" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2087970203" label="Rationality and revolution - Paul B. Rich">
+        <attvalues>
+          <attvalue for="0" value="11.406138" />
+          <attvalue for="1" value="1989-01-01" />
+          <attvalue for="2" value="Paul B. Rich" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W4214879642" label="Political Regimes and Economic Growth - Adam Przeworski">
+        <attvalues>
+          <attvalue for="0" value="18.598091" />
+          <attvalue for="1" value="1993-08-01" />
+          <attvalue for="2" value="Adam Przeworski" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2170453568" label="De‐Sir Humphreyfying the Westminster Model of Bureaucracy: A New Style of Governance? - Christopher Hood">
+        <attvalues>
+          <attvalue for="0" value="7.0802627" />
+          <attvalue for="1" value="1990-04-01" />
+          <attvalue for="2" value="Christopher Hood" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2086838579" label="Dictatorship, Democracy, and Development - Mancur Olson">
+        <attvalues>
+          <attvalue for="0" value="37.180904" />
+          <attvalue for="1" value="1993-09-01" />
+          <attvalue for="2" value="Mancur Olson" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2033055200" label="Rationality and Revolution. Edited by Michael Taylor. New York: Cambridge University Press, 1987. 271p. $37.50. - James P. Johnson">
+        <attvalues>
+          <attvalue for="0" value="11.276884" />
+          <attvalue for="1" value="1989-09-01" />
+          <attvalue for="2" value="James P. Johnson" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W4234993506" label="The Political Economy of Rent-Seeking - Jerry Evensky">
+        <attvalues>
+          <attvalue for="0" value="12.24164" />
+          <attvalue for="1" value="1989-04-01" />
+          <attvalue for="2" value="Jerry Evensky" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2108360848" label="Human Nature in Politics: The Dialogue of Psychology with Political Science - Herbert A. Simon">
+        <attvalues>
+          <attvalue for="0" value="27.360172" />
+          <attvalue for="1" value="1985-06-01" />
+          <attvalue for="2" value="Herbert A. Simon" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W4254127532" label="A Culturalist Theory of Political Change - Harry Eckstein">
+        <attvalues>
+          <attvalue for="0" value="11.109349" />
+          <attvalue for="1" value="1988-09-01" />
+          <attvalue for="2" value="Harry Eckstein" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2022773153" label="Distinguished Lecture on Economics in Government: Big Bills Left on the Sidewalk: Why Some Nations are Rich, and Others Poor - Mancur Olson">
+        <attvalues>
+          <attvalue for="0" value="12.791791" />
+          <attvalue for="1" value="1996-05-01" />
+          <attvalue for="2" value="Mancur Olson" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2071437462" label="Anarchy and its Breakdown - Jack Hirshleifer">
+        <attvalues>
+          <attvalue for="0" value="24.424072" />
+          <attvalue for="1" value="1995-02-01" />
+          <attvalue for="2" value="Jack Hirshleifer" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2038611999" label="The devolution of centrally planned economies - Peter Murrell">
+        <attvalues>
+          <attvalue for="0" value="4.256979" />
+          <attvalue for="1" value="1991-06-01" />
+          <attvalue for="2" value="Peter Murrell" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2924744787" label="Fiscal policy and economic growth - William Easterly">
+        <attvalues>
+          <attvalue for="0" value="16.009659" />
+          <attvalue for="1" value="1993-12-01" />
+          <attvalue for="2" value="William Easterly" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1985704421" label="Public Management: The New Zealand Model - Richard W. Phidd">
+        <attvalues>
+          <attvalue for="0" value="18.380789" />
+          <attvalue for="1" value="1998-03-01" />
+          <attvalue for="2" value="Richard W. Phidd" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2086978636" label="Comparative Politics: Rationality, Culture and Structure - Kieran Healy">
+        <attvalues>
+          <attvalue for="0" value="26.471798" />
+          <attvalue for="1" value="1999-03-01" />
+          <attvalue for="2" value="Kieran Healy" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2052412649" label="Repression, Micromobilization, and Political Protest - Karl‐Dieter Opp">
+        <attvalues>
+          <attvalue for="0" value="5.6818767" />
+          <attvalue for="1" value="1990-12-01" />
+          <attvalue for="2" value="Karl‐Dieter Opp" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2094837829" label="Powerful Pacifists: Democratic States and War - David A. Lake">
+        <attvalues>
+          <attvalue for="0" value="13.441766" />
+          <attvalue for="1" value="1992-03-01" />
+          <attvalue for="2" value="David A. Lake" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2033933531" label="Norms, culture, and world politics: insights from sociology's institutionalism - Martha Finnemore">
+        <attvalues>
+          <attvalue for="0" value="15.508757" />
+          <attvalue for="1" value="1996-01-01" />
+          <attvalue for="2" value="Martha Finnemore" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2131471471" label="Decision Calculus of Protesters and Regimes: Eastern Europe 1989 - Расма Карклинс">
+        <attvalues>
+          <attvalue for="0" value="5.7687473" />
+          <attvalue for="1" value="1993-08-01" />
+          <attvalue for="2" value="Расма Карклинс" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2145185408" label="Entrepreneurship: Productive, unproductive, and destructive - William J. Baumöl">
+        <attvalues>
+          <attvalue for="0" value="19.736927" />
+          <attvalue for="1" value="1996-01-01" />
+          <attvalue for="2" value="William J. Baumöl" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2010235856" label="INSTITUTIONS AND ECONOMIC PERFORMANCE: CROSS‐COUNTRY TESTS USING ALTERNATIVE INSTITUTIONAL MEASURES - Stephen Knack">
+        <attvalues>
+          <attvalue for="0" value="47.88578" />
+          <attvalue for="1" value="1995-11-01" />
+          <attvalue for="2" value="Stephen Knack" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1980406593" label="A PUBLIC MANAGEMENT FOR ALL SEASONS? - Christopher Hood">
+        <attvalues>
+          <attvalue for="0" value="28.00855" />
+          <attvalue for="1" value="1991-03-01" />
+          <attvalue for="2" value="Christopher Hood" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2321922719" label="Concessions, Repression, and Political Protest in the Iranian Revolution - Karen Rasler">
+        <attvalues>
+          <attvalue for="0" value="12.689687" />
+          <attvalue for="1" value="1996-02-01" />
+          <attvalue for="2" value="Karen Rasler" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2107678607" label="Foundations of Social Theory - Frederick C. Gamst">
+        <attvalues>
+          <attvalue for="0" value="31.9884" />
+          <attvalue for="1" value="1991-09-01" />
+          <attvalue for="2" value="Frederick C. Gamst" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2157774440" label="Catching Up, Forging Ahead, and Falling Behind - Moses Abramovitz">
+        <attvalues>
+          <attvalue for="0" value="35.465668" />
+          <attvalue for="1" value="1986-06-01" />
+          <attvalue for="2" value="Moses Abramovitz" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W2111282827" label="The Economics of Convention - H. Peyton Young">
+        <attvalues>
+          <attvalue for="0" value="11.456741" />
+          <attvalue for="1" value="1996-05-01" />
+          <attvalue for="2" value="H. Peyton Young" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W3124479856" label="The Allocation of Talent: Implications for Growth - Kevin Murphy">
+        <attvalues>
+          <attvalue for="0" value="25.045488" />
+          <attvalue for="1" value="1991-05-01" />
+          <attvalue for="2" value="Kevin Murphy" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1971144627" label="Anarchy and the limits of cooperation: a realist critique of the newest liberal institutionalism - Joseph M. Grieco">
+        <attvalues>
+          <attvalue for="0" value="10.799657" />
+          <attvalue for="1" value="1988-01-01" />
+          <attvalue for="2" value="Joseph M. Grieco" />
+        </attvalues>
+      </node>
+      <node id="https://openalex.org/W1999938923" label="Contra Contractarianism: Some Reflections on the New Institutionalism - Robert H. Bates">
+        <attvalues>
+          <attvalue for="0" value="12.965855" />
+          <attvalue for="1" value="1988-06-01" />
+          <attvalue for="2" value="Robert H. Bates" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="https://openalex.org/W2085385208" target="https://openalex.org/W2022773153" id="0" weight="0.027777777777777776" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2086838579" id="1" weight="0.06930693069306931" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2107678607" id="2" weight="0.0136986301369863" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2157774440" id="3" weight="0.06060606060606061" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2031873264" id="4" weight="0.03333333333333333" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W4214879642" id="5" weight="0.05263157894736842" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W3124479856" id="6" weight="0.03333333333333333" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2010235856" id="7" weight="0.058823529411764705" />
+      <edge source="https://openalex.org/W1988922041" target="https://openalex.org/W2083051110" id="8" weight="0.0625" />
+      <edge source="https://openalex.org/W2159191507" target="https://openalex.org/W2086838579" id="9" weight="0.018018018018018018" />
+      <edge source="https://openalex.org/W2159191507" target="https://openalex.org/W2924744787" id="10" weight="0.02857142857142857" />
+      <edge source="https://openalex.org/W2159191507" target="https://openalex.org/W2071437462" id="11" weight="0.06666666666666667" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2138057253" id="12" weight="0.022727272727272728" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2086838579" id="13" weight="0.010101010101010102" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2107678607" id="14" weight="0.015384615384615385" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2031873264" id="15" weight="0.045454545454545456" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W4214879642" id="16" weight="0.03225806451612903" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W1990264030" id="17" weight="0.034482758620689655" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2071437462" id="18" weight="0.06060606060606061" />
+      <edge source="https://openalex.org/W2083051110" target="https://openalex.org/W2154285995" id="19" weight="0.038461538461538464" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2138057253" id="20" weight="0.2564102564102564" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2086838579" id="21" weight="0.009708737864077669" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2107678607" id="22" weight="0.029411764705882353" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2087970203" id="23" weight="0.034482758620689655" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2033055200" id="24" weight="0.02564102564102564" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2052412649" id="25" weight="0.038461538461538464" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2924744787" id="26" weight="0.038461538461538464" />
+      <edge source="https://openalex.org/W1990264030" target="https://openalex.org/W2154285995" id="27" weight="0.24" />
+      <edge source="https://openalex.org/W2164079995" target="https://openalex.org/W1971144627" id="28" weight="0.07692307692307693" />
+      <edge source="https://openalex.org/W2164079995" target="https://openalex.org/W2033933531" id="29" weight="0.12" />
+      <edge source="https://openalex.org/W2164079995" target="https://openalex.org/W1999938923" id="30" weight="0.07142857142857142" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2086838579" id="31" weight="0.00847457627118644" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2107678607" id="32" weight="0.04938271604938271" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2087970203" id="33" weight="0.07142857142857142" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2108360848" id="34" weight="0.05" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2086978636" id="35" weight="0.02127659574468085" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2131471471" id="36" weight="0.024390243902439025" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2033055200" id="37" weight="0.057692307692307696" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2052412649" id="38" weight="0.07692307692307693" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2321922719" id="39" weight="0.024390243902439025" />
+      <edge source="https://openalex.org/W2138057253" target="https://openalex.org/W2154285995" id="40" weight="0.09523809523809523" />
+      <edge source="https://openalex.org/W2020965062" target="https://openalex.org/W2086838579" id="41" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2031873264" target="https://openalex.org/W2145185408" id="42" weight="0.10526315789473684" />
+      <edge source="https://openalex.org/W2031873264" target="https://openalex.org/W2086838579" id="43" weight="0.043010752688172046" />
+      <edge source="https://openalex.org/W2031873264" target="https://openalex.org/W4214879642" id="44" weight="0.03571428571428571" />
+      <edge source="https://openalex.org/W2031873264" target="https://openalex.org/W2022773153" id="45" weight="0.027777777777777776" />
+      <edge source="https://openalex.org/W2031873264" target="https://openalex.org/W2071437462" id="46" weight="0.10344827586206896" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2086838579" id="47" weight="0.01" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2107678607" id="48" weight="0.015151515151515152" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2087970203" id="49" weight="0.038461538461538464" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2131471471" id="50" weight="0.043478260869565216" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2033055200" id="51" weight="0.027777777777777776" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2052412649" id="52" weight="0.09090909090909091" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2924744787" id="53" weight="0.043478260869565216" />
+      <edge source="https://openalex.org/W2154285995" target="https://openalex.org/W2321922719" id="54" weight="0.043478260869565216" />
+      <edge source="https://openalex.org/W2087970203" target="https://openalex.org/W2107678607" id="55" weight="0.015384615384615385" />
+      <edge source="https://openalex.org/W2087970203" target="https://openalex.org/W2108360848" id="56" weight="0.023255813953488372" />
+      <edge source="https://openalex.org/W2087970203" target="https://openalex.org/W2038611999" id="57" weight="0.04" />
+      <edge source="https://openalex.org/W2087970203" target="https://openalex.org/W2033055200" id="58" weight="0.2857142857142857" />
+      <edge source="https://openalex.org/W2087970203" target="https://openalex.org/W2094837829" id="59" weight="0.043478260869565216" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2086838579" id="60" weight="0.0707070707070707" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2038611999" id="61" weight="0.03225806451612903" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2010235856" id="62" weight="0.06060606060606061" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2094837829" id="63" weight="0.034482758620689655" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2924744787" id="64" weight="0.03571428571428571" />
+      <edge source="https://openalex.org/W4214879642" target="https://openalex.org/W2022773153" id="65" weight="0.022222222222222223" />
+      <edge source="https://openalex.org/W2170453568" target="https://openalex.org/W1980406593" id="66" weight="0.08695652173913043" />
+      <edge source="https://openalex.org/W2170453568" target="https://openalex.org/W1985704421" id="67" weight="0.11538461538461539" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W4254127532" id="68" weight="0.01020408163265306" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2145185408" id="69" weight="0.010309278350515464" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2107678607" id="70" weight="0.014492753623188406" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2157774440" id="71" weight="0.01" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2038611999" id="72" weight="0.010101010101010102" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W3124479856" id="73" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2086978636" id="74" weight="0.019801980198019802" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2131471471" id="75" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2010235856" id="76" weight="0.08661417322834646" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2094837829" id="77" weight="0.010309278350515464" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2052412649" id="78" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2924744787" id="79" weight="0.021052631578947368" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2321922719" id="80" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2022773153" id="81" weight="0.017857142857142856" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2071437462" id="82" weight="0.02830188679245283" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W4234993506" id="83" weight="0.00980392156862745" />
+      <edge source="https://openalex.org/W2086838579" target="https://openalex.org/W2111282827" id="84" weight="0.010416666666666666" />
+      <edge source="https://openalex.org/W2033055200" target="https://openalex.org/W2108360848" id="85" weight="0.018867924528301886" />
+      <edge source="https://openalex.org/W2033055200" target="https://openalex.org/W2094837829" id="86" weight="0.030303030303030304" />
+      <edge source="https://openalex.org/W2033055200" target="https://openalex.org/W2052412649" id="87" weight="0.03125" />
+      <edge source="https://openalex.org/W2033055200" target="https://openalex.org/W2321922719" id="88" weight="0.03125" />
+      <edge source="https://openalex.org/W4234993506" target="https://openalex.org/W2010235856" id="89" weight="0.03076923076923077" />
+      <edge source="https://openalex.org/W2108360848" target="https://openalex.org/W2107678607" id="90" weight="0.012048192771084338" />
+      <edge source="https://openalex.org/W4254127532" target="https://openalex.org/W2107678607" id="91" weight="0.015625" />
+      <edge source="https://openalex.org/W4254127532" target="https://openalex.org/W2086978636" id="92" weight="0.07692307692307693" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2145185408" id="93" weight="0.05555555555555555" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2107678607" id="94" weight="0.012658227848101266" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2038611999" id="95" weight="0.02564102564102564" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W3124479856" id="96" weight="0.05714285714285714" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2010235856" id="97" weight="0.11428571428571428" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2071437462" id="98" weight="0.020833333333333332" />
+      <edge source="https://openalex.org/W2022773153" target="https://openalex.org/W2111282827" id="99" weight="0.08823529411764706" />
+      <edge source="https://openalex.org/W2071437462" target="https://openalex.org/W2145185408" id="100" weight="0.03125" />
+      <edge source="https://openalex.org/W2038611999" target="https://openalex.org/W3124479856" id="101" weight="0.045454545454545456" />
+      <edge source="https://openalex.org/W2038611999" target="https://openalex.org/W2010235856" id="102" weight="0.015873015873015872" />
+      <edge source="https://openalex.org/W2038611999" target="https://openalex.org/W2094837829" id="103" weight="0.043478260869565216" />
+      <edge source="https://openalex.org/W2924744787" target="https://openalex.org/W2010235856" id="104" weight="0.016666666666666666" />
+      <edge source="https://openalex.org/W1985704421" target="https://openalex.org/W1980406593" id="105" weight="0.1875" />
+      <edge source="https://openalex.org/W2086978636" target="https://openalex.org/W2107678607" id="106" weight="0.014705882352941176" />
+      <edge source="https://openalex.org/W2086978636" target="https://openalex.org/W2131471471" id="107" weight="0.04" />
+      <edge source="https://openalex.org/W2086978636" target="https://openalex.org/W2033933531" id="108" weight="0.037037037037037035" />
+      <edge source="https://openalex.org/W2086978636" target="https://openalex.org/W2052412649" id="109" weight="0.04" />
+      <edge source="https://openalex.org/W2086978636" target="https://openalex.org/W2321922719" id="110" weight="0.04" />
+      <edge source="https://openalex.org/W2052412649" target="https://openalex.org/W2131471471" id="111" weight="0.05263157894736842" />
+      <edge source="https://openalex.org/W2052412649" target="https://openalex.org/W2321922719" id="112" weight="0.25" />
+      <edge source="https://openalex.org/W2094837829" target="https://openalex.org/W1971144627" id="113" weight="0.045454545454545456" />
+      <edge source="https://openalex.org/W2033933531" target="https://openalex.org/W2107678607" id="114" weight="0.031746031746031744" />
+      <edge source="https://openalex.org/W2033933531" target="https://openalex.org/W1999938923" id="115" weight="0.04" />
+      <edge source="https://openalex.org/W2131471471" target="https://openalex.org/W2321922719" id="116" weight="0.05263157894736842" />
+      <edge source="https://openalex.org/W2145185408" target="https://openalex.org/W2157774440" id="117" weight="0.041666666666666664" />
+      <edge source="https://openalex.org/W2145185408" target="https://openalex.org/W3124479856" id="118" weight="0.10526315789473684" />
+      <edge source="https://openalex.org/W2145185408" target="https://openalex.org/W2010235856" id="119" weight="0.01639344262295082" />
+      <edge source="https://openalex.org/W2145185408" target="https://openalex.org/W2111282827" id="120" weight="0.05" />
+      <edge source="https://openalex.org/W2010235856" target="https://openalex.org/W2107678607" id="121" weight="0.009708737864077669" />
+      <edge source="https://openalex.org/W2010235856" target="https://openalex.org/W2157774440" id="122" weight="0.031746031746031744" />
+      <edge source="https://openalex.org/W2010235856" target="https://openalex.org/W3124479856" id="123" weight="0.10909090909090909" />
+      <edge source="https://openalex.org/W2010235856" target="https://openalex.org/W2111282827" id="124" weight="0.016666666666666666" />
+      <edge source="https://openalex.org/W2107678607" target="https://openalex.org/W2157774440" id="125" weight="0.015151515151515152" />
+      <edge source="https://openalex.org/W2107678607" target="https://openalex.org/W3124479856" id="126" weight="0.016129032258064516" />
+      <edge source="https://openalex.org/W2157774440" target="https://openalex.org/W3124479856" id="127" weight="0.043478260869565216" />
+    </edges>
+  </graph>
+</gexf>

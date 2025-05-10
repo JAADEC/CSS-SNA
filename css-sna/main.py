@@ -1,7 +1,7 @@
 import hashlib
-import open_alex
-import cache
-import graph
+from open_alex import OpenAlex
+from cache_data import Cache
+from graph import Graph
 
 FIRST_TERMS = [
     "collective action problem",
@@ -20,7 +20,9 @@ SECOND_TERMS = [
 ]
 
 FILTERS = {
-    'type': 'article'
+    'type': 'article',
+    # 'from_publication_date': '1985-01-01',
+    # 'to_publication_date': '2004-12-31'
 }
 
 def get_hash_key():
@@ -32,30 +34,28 @@ def get_hash_key():
 
     return hashlib.sha256(str(hash_values).encode()).hexdigest()
 
-def get_api_data(hash_key = None):
-    print(f"Referencing API data with key: '{hash_key}'")
+def get_api_data():
+    open_alex_api = OpenAlex()
+    open_alex_api.reset_references()
 
-    if hash_key and cache.has_cache(hash_key):
-        print("Cache hit")
-        return cache.retrieve_dict(hash_key)
-    else:
-        print("Cache miss, falling back to API calls")
-        open_alex.reset_articles()
+    for first_term in FIRST_TERMS:
+        for second_term in SECOND_TERMS:
+            open_alex_api.get_request([first_term, second_term], FILTERS)
 
-        for first_term in FIRST_TERMS:
-            for second_term in SECOND_TERMS:
-                open_alex.get([first_term, second_term], FILTERS)
-
-        articles = open_alex.get_articles()
-        cache.save_dict(articles, hash_key)
-        return articles
+    return open_alex_api.get_references()
 
 if __name__ == '__main__':
-    hash_key = get_hash_key()
+    cache_key = get_hash_key()
 
-    articles = get_api_data(hash_key)
-    print(f"{len(articles)} articles retrieved")
+    api_cache = Cache('api')
+    references = api_cache.execute(get_api_data, cache_key)
 
-    graph.build_co_citation(articles)
+    print(f"{len(references)} articles retrieved")
+
+    graph = Graph(references)
+
+    graph.build_co_citation(
+        cited_by_cutoff=10
+    )
     graph.statistics()
-    graph.store(f"co_{hash_key}")
+    graph.store_to_file("co-citation")
