@@ -3,7 +3,7 @@ from open_alex import OpenAlex
 from cache_data import Cache
 from graph import Graph
 
-FIRST_TERMS = [
+TERMS = [
     "collective action problem",
     "olson",
     "tullock",
@@ -11,7 +11,7 @@ FIRST_TERMS = [
     "rational choice"
 ]
 
-SECOND_TERMS = [
+CONFLICT_TYPES = [
     "revolution",
     "rebellion",
     "civil war",
@@ -27,8 +27,8 @@ FILTERS = {
 
 def get_hash_key():
     hash_values = [
-        FIRST_TERMS,
-        SECOND_TERMS,
+        TERMS,
+        CONFLICT_TYPES,
         FILTERS
     ]
 
@@ -38,9 +38,9 @@ def get_api_data():
     open_alex_api = OpenAlex()
     open_alex_api.reset_references()
 
-    for first_term in FIRST_TERMS:
-        for second_term in SECOND_TERMS:
-            open_alex_api.get_request([first_term, second_term], FILTERS)
+    for term in TERMS:
+        for conflict_type in CONFLICT_TYPES:
+            open_alex_api.get_request(term, conflict_type, FILTERS)
 
     return open_alex_api.get_references()
 
@@ -48,14 +48,14 @@ if __name__ == '__main__':
     cache_key = get_hash_key()
 
     api_cache = Cache('api')
-    references = api_cache.execute(get_api_data, cache_key)
+    references: dict = api_cache.execute(get_api_data, cache_key)
 
     print(f"{len(references)} articles retrieved")
 
-    graph = Graph(references)
+    graph = Graph(references, CONFLICT_TYPES)
 
     graph.build_co_citation(
         cited_by_cutoff=10
     )
     graph.statistics()
-    graph.store_to_file("co-citation")
+    graph.store_to_file("co-citation-10")
