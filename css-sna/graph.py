@@ -8,8 +8,9 @@ class Graph:
     FILE_TIME_FORMAT = '%Y-%m-%d-%H-%M-%S'
     UPDATE_COUNT = 1000000
 
-    def __init__(self, references: dict, directed = False):
+    def __init__(self, references: dict, conflict_types: list, directed = False):
         self.references = references
+        self.conflict_types = conflict_types
         self.directed = directed
         self.reset_graph()
 
@@ -22,16 +23,22 @@ class Graph:
     def add_reference_node(self, key):
         if key in self.references:
             reference = self.references.get(key)
+
             if len(reference['authorships']) == 0:
-                author = ""
+                author = "Unknown"
             else:
                 author = reference['authorships'][0]['author']['display_name']
+
+            search_data: dict = reference['search_data']
+            conflict_search = {c: search_data.get(c) or 0 for c in self.conflict_types}
+
             self.graph.add_node(
                 key,
-                label=f"{reference['title']}-{author}",
+                label=f"{reference['title']} - {author}",
                 relevance_score=reference['relevance_score'],
                 publication_date=reference['publication_date'],
-                first_author=author
+                first_author=author,
+                **conflict_search
             )
         else:
             print(f"Reference with key {key} not found in references set")
@@ -96,7 +103,7 @@ class Graph:
         for (a, b) in it.combinations(filtered_set, 2):
             count += 1
             if count % self.UPDATE_COUNT == 0:
-                print(f"Processed {count // self.UPDATE_COUNT}M edges")
+                print(f"Processed {count // self.UPDATE_COUNT}M edg1es")
 
             combination_count = co_matrix.loc[a, b]
             
@@ -105,8 +112,10 @@ class Graph:
                 b_count = co_matrix.loc[b, b]
 
                 jaccard_index = combination_count / (a_count + b_count - combination_count)
+                from_reference = self.references.get(a)
+                to_reference = self.references.get(b)
                 if jaccard_index >= jaccard_cuttoff:
-                    self.graph.add_edge(a, b, weight=jaccard_index)
+                    self.graph.add_edge(a, b, label=f"{from_reference['title']} - {to_reference['title']}", weight=jaccard_index, jaccard_index=jaccard_index, count=combination_count)
 
 
     def build_citation(self):
