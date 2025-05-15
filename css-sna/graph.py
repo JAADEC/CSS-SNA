@@ -68,48 +68,51 @@ class Graph:
             file = f"{self.FOLDER}/{filedate}_{filename}.gexf"
         nx.write_gexf(self.graph, file)
 
-    def build_co_citation(self, cited_by_cutoff = 1, co_cite_cutoff = 1, jaccard_cuttoff = 0.0):
-        print("Initiating count dataframe")
-        keys = self.references.keys()
-        co_matrix = pd.DataFrame(0, index=keys, columns=keys)
-        referenced_set = set()
+    def build_co_citation(self, cited_by_cutoff = 1, cited_by_cutoff_year = None, co_cite_cutoff = 1, jaccard_cuttoff = 0.0, references_cuttoff_year = None):
+        print("Calculating referenced by measure")
+        referenced_by_count = dict()
+        for reference in self.references.values():
+            if not cited_by_cutoff_year or reference['publication_year'] >= cited_by_cutoff_year:
+                for referenced in reference['referenced_works']:
+                    if referenced in self.references and (not references_cuttoff_year or self.references[referenced]['publication_year'] >= references_cuttoff_year):
+                        if not referenced in referenced_by_count:
+                            referenced_by_count[referenced] = 0
+                        referenced_by_count[referenced] += 1
 
-        print("Counting co-citations")
-        for refs in self.references.values():
-            for referenced in refs['referenced_works']:
-                if referenced in self.references:
-                    co_matrix.at[referenced, referenced] += 1
-                    referenced_set.add(referenced)
-
-            for (a, b) in it.combinations(refs['referenced_works'], 2):
-                if a in self.references and b in self.references:
-                    co_matrix.at[a, b] += 1
-                    co_matrix.at[b, a] += 1
-
-        print(f"Found {len(referenced_set)} cited references in our dataset")
+        print(f"Found {len(referenced_by_count)} cited references in our dataset")
 
         print("Creating nodes in the graph")
         filtered_set = set()
-        for reference_key in referenced_set:
-            cited_by = co_matrix.loc[reference_key, reference_key]
-            if cited_by >= cited_by_cutoff:
+        for reference_key, reference_count in referenced_by_count.items():
+            if reference_count >= cited_by_cutoff:
                 self.add_reference_node(reference_key)
                 filtered_set.add(reference_key)
 
-        print(f"Found {len(filtered_set)} cited references cited by {cited_by_cutoff} or more references")
+        if cited_by_cutoff_year:
+            print(f"Found {len(filtered_set)} cited references cited by {cited_by_cutoff} or more references since {cited_by_cutoff_year}")
+        else:
+            print(f"Found {len(filtered_set)} cited references cited by {cited_by_cutoff} or more references")
+
+        print("Counting co-citations")
+        co_matrix = pd.DataFrame(0, index=list(filtered_set), columns=list(filtered_set))
+        for reference in self.references.values():
+            for (a, b) in it.combinations(reference['referenced_works'], 2):
+                if a in filtered_set and b in filtered_set:
+                    co_matrix.at[a, b] += 1
+                    co_matrix.at[b, a] += 1        
 
         print("Add edges to graph")
         count = 0
         for (a, b) in it.combinations(filtered_set, 2):
             count += 1
             if count % self.UPDATE_COUNT == 0:
-                print(f"Processed {count // self.UPDATE_COUNT}M edg1es")
+                print(f"Processed {count // self.UPDATE_COUNT}M edges")
 
             combination_count = co_matrix.loc[a, b]
             
             if combination_count >= co_cite_cutoff:
-                a_count = co_matrix.loc[a, a]
-                b_count = co_matrix.loc[b, b]
+                a_count = referenced_by_count[a]
+                b_count = referenced_by_count[b]
 
                 jaccard_index = combination_count / (a_count + b_count - combination_count)
                 from_reference = self.references.get(a)
