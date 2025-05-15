@@ -68,6 +68,7 @@ class OpenAlex:
             else:
                 self.dictionary[result['id']]['relevance_score'] += result['relevance_score']
             self.dictionary[result['id']]['search_data'][conflict_type] = 1
+            self.dictionary[result['id']]['search_data'][term] = 1
             count += 1
 
         if (json_response['meta']['next_cursor']):

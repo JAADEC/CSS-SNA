@@ -2,11 +2,17 @@ import networkx as nx
 import pandas as pd
 import itertools as it
 import datetime as dt
+import os
 
 class Graph:
     FOLDER = 'data'
     FILE_TIME_FORMAT = '%Y-%m-%d-%H-%M-%S'
     UPDATE_COUNT = 1000000
+    IMPORT_FORMATS = {
+        "graphml": nx.read_graphml,
+        "gml": nx.read_gml,
+        "gexf": nx.read_gexf,
+    }
 
     def __init__(self, references: dict, conflict_types: list, directed = False):
         self.references = references
@@ -43,20 +49,61 @@ class Graph:
         else:
             print(f"Reference with key {key} not found in references set")
 
+    def ei_index(self, module_index: str = "Modularity Class"):
+        print("Calculating e-i index")
+        external = 0
+        internal = 0
+        for node1, node2 in self.graph.edges():
+            if self.graph.nodes[node1][module_index] == self.graph.nodes[node2][module_index]:
+                internal += 1
+            else:
+                external += 1
+        
+        ei = (external - internal) / (external + internal)
+
+        self.print_stats({
+            "E-I index": ei
+        })
+
+
+
     def statistics(self):
         num_nodes = self.graph.number_of_nodes()
         num_edges = self.graph.number_of_edges()
         density = nx.density(self.graph)
         avg_clustering = nx.average_clustering(self.graph)
 
+        self.print_stats({
+            "Number of nodes": num_nodes,
+            "Number of edges": num_edges,
+            "Density": density,
+            "Average clustering coefficient": avg_clustering,
+        })
+
+    def print_stats(self, stats: dict):
         # Print the results
         print()
         print("------------------------------------ STATS ------------------------------------")
-        print("Number of nodes:                  ", num_nodes)
-        print("Number of edges:                  ", num_edges)
-        print("Density:                          ", density)
-        print("Average clustering coefficient:   ", avg_clustering)
+        for name, value in stats.items():
+            whitespace = ' ' * (40 - len(name))
+            print(f"{name}:{whitespace}{value}")
         print("-------------------------------------------------------------------------------")
+
+    def import_from_file(self, filename: str):
+        for format, importer in self.IMPORT_FORMATS.items():
+            if file := self.get_path(filename, format):
+                print(f"Importing '{file}'")
+                self.graph = importer(file)
+                return
+            
+        print(f"'{filename}' not found")
+
+    def get_path(self, filename: str, extention: str):
+        file = file = f"{self.FOLDER}/{filename}.{extention}"
+        if os.path.isfile(file):
+            return file
+        else:
+            return None
 
     def store_to_file(self, filename: str = None):
         now = dt.datetime.now()

@@ -21,7 +21,7 @@ CONFLICT_TYPES = [
 ]
 
 FILTERS = {
-    'type': 'article',
+    'type': 'article|book-chapter|book|review',
     # 'from_publication_date': '1985-01-01',
     # 'to_publication_date': '2004-12-31'
 }
@@ -63,8 +63,12 @@ if __name__ == '__main__':
 
     graph = Graph(references, CONFLICT_TYPES)
 
-    graph.build_co_citation(
-        cited_by_cutoff=10
-    )
+    graph.import_from_file('all-20')
     graph.statistics()
-    graph.store_to_file("co-citation-10")
+    graph.ei_index()
+
+    # graph.build_co_citation(
+    #     cited_by_cutoff=20
+    # )
+    # graph.statistics()
+    # graph.store_to_file("co-citation-20")
