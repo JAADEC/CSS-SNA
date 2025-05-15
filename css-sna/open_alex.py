@@ -1,10 +1,22 @@
 import requests
+import hashlib
+from cache_data import Cache
 
 class OpenAlex:
     API_BASE = "https://api.openalex.org/works?"
+    STORED_KEYS = [
+        "authorships",
+        "search_data",
+        "title",
+        "relevance_score",
+        "publication_date",
+        "publication_year",
+        "referenced_works"
+    ]
 
     def __init__(self):
         self.dictionary = dict()
+        self.cache = Cache('open_alex', log=False)
 
     def reset_references(self): 
         self.dictionary.clear
@@ -14,6 +26,12 @@ class OpenAlex:
 
     def normalize(self, term):
         return '"' + term.lower() + '"'
+    
+    def compress(self, result):
+        return {key: result[key] for key in result if key in self.STORED_KEYS}
+    
+    def get_hash_key(self, payload: dict):
+        return hashlib.sha256(str(payload).encode()).hexdigest()
 
     def get_request(self, term, conflict_type, filters):
         filters = ",".join(f"{key}:{value}" for key, value in filters.items())
@@ -30,23 +48,27 @@ class OpenAlex:
     def get_all(self, term, conflict_type, filters, cursor='*'):
         search_terms = " ".join(map(self.normalize, [term, conflict_type]))
         payload = {
+            'mailto': 'jaap.dechering@student.uva.nl',
             'search': search_terms,
             'per-page': 200,
             'filter': filters,
             'cursor': cursor
         }
 
-        response = requests.get(self.API_BASE, params=payload)
-
+        cache_key = self.get_hash_key(payload)
+        response = self.cache.execute(cache_key, requests.get, url=self.API_BASE, params=payload)
         json_response = response.json()
 
         count = 0
         dict_start = len(self.dictionary)
         for result in json_response['results']:
             if not result['id'] in self.dictionary:
-                self.dictionary[result['id']] = result
+                self.dictionary[result['id']] = self.compress(result)
                 self.dictionary[result['id']]['search_data'] = {}
+            else:
+                self.dictionary[result['id']]['relevance_score'] += result['relevance_score']
             self.dictionary[result['id']]['search_data'][conflict_type] = 1
+            self.dictionary[result['id']]['search_data'][term] = 1
             count += 1
 
         if (json_response['meta']['next_cursor']):

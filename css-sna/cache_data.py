@@ -4,18 +4,19 @@ import os
 class Cache:
     FOLDER = 'cache'
 
-    def __init__(self, folder: str):
+    def __init__(self, folder: str, log = True):
         self.folder = f"cache/{folder}"
+        self.log = log
 
-    def execute(self, function, cache_key: str):
-        print(f"Executing function with cache key: '{cache_key}'")
+    def execute(self, cache_key: str, function, **attr):
+        self.print_message(f"Executing function with cache key: '{cache_key}'")
 
         if cache_key and self.has_cache(cache_key):
-            print("Cache hit")
+            self.print_message("Cache hit")
             return self.retrieve_cache(cache_key)
         else:
-            print("Cache miss, executing function")
-            data = function()
+            self.print_message("Cache miss, executing function")
+            data = function(**attr)
             self.save_cache(data, cache_key)
             return data
 
@@ -36,3 +37,7 @@ class Cache:
                 return pickle.load(file)
         else:
             return None
+        
+    def print_message(self, message):
+        if self.log:
+            print(message)
