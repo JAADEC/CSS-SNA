@@ -51,6 +51,8 @@ def get_api_data():
         for conflict_type in CONFLICT_TYPES:
             open_alex_api.get_request(term, conflict_type, FILTERS)
 
+    open_alex_api.get_request("collective action", "logic", {"ids.openalex": "https://openalex.org/W4391965190"})
+
     return open_alex_api.get_references()
 
 if __name__ == '__main__':
@@ -63,12 +65,14 @@ if __name__ == '__main__':
 
     graph = Graph(references, CONFLICT_TYPES)
 
-    graph.import_from_file('all-20')
+    graph.import_from_file('all-v2')
     graph.statistics()
     graph.ei_index()
 
     # graph.build_co_citation(
-    #     cited_by_cutoff=20
+    #     cited_by_cutoff=10,
+    #     relevance_score_cuttoff=5.0
     # )
     # graph.statistics()
-    # graph.store_to_file("co-citation-20")
+    # graph.ei_index()
+    # graph.store_to_file("all-10-cited_by")

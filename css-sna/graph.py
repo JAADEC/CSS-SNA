@@ -26,7 +26,7 @@ class Graph:
         else:
             self.graph = nx.Graph()
 
-    def add_reference_node(self, key):
+    def add_reference_node(self, key, cited_by: int = -1):
         if key in self.references:
             reference = self.references.get(key)
 
@@ -44,6 +44,8 @@ class Graph:
                 relevance_score=reference['relevance_score'],
                 publication_date=reference['publication_date'],
                 first_author=author,
+                cited_by=reference['cited_by_count'],
+                cited_by_dataset=cited_by,
                 **conflict_search
             )
         else:
@@ -64,8 +66,6 @@ class Graph:
         self.print_stats({
             "E-I index": ei
         })
-
-
 
     def statistics(self):
         num_nodes = self.graph.number_of_nodes()
@@ -115,13 +115,13 @@ class Graph:
             file = f"{self.FOLDER}/{filedate}_{filename}.gexf"
         nx.write_gexf(self.graph, file)
 
-    def build_co_citation(self, cited_by_cutoff = 1, cited_by_cutoff_year = None, co_cite_cutoff = 1, jaccard_cuttoff = 0.0, references_cuttoff_year = None):
+    def build_co_citation(self, cited_by_cutoff = 1, cited_by_cutoff_year = None, co_cite_cutoff = 1, jaccard_cuttoff = 0.0, references_cuttoff_year = None, relevance_score_cuttoff = 0.0):
         print("Calculating referenced by measure")
         referenced_by_count = dict()
         for reference in self.references.values():
             if not cited_by_cutoff_year or reference['publication_year'] >= cited_by_cutoff_year:
                 for referenced in reference['referenced_works']:
-                    if referenced in self.references and (not references_cuttoff_year or self.references[referenced]['publication_year'] >= references_cuttoff_year):
+                    if referenced in self.references and (not references_cuttoff_year or self.references[referenced]['publication_year'] >= references_cuttoff_year) and self.references[referenced]['relevance_score'] > relevance_score_cuttoff:
                         if not referenced in referenced_by_count:
                             referenced_by_count[referenced] = 0
                         referenced_by_count[referenced] += 1
@@ -132,7 +132,7 @@ class Graph:
         filtered_set = set()
         for reference_key, reference_count in referenced_by_count.items():
             if reference_count >= cited_by_cutoff:
-                self.add_reference_node(reference_key)
+                self.add_reference_node(reference_key, reference_count)
                 filtered_set.add(reference_key)
 
         if cited_by_cutoff_year:
