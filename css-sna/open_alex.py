@@ -11,7 +11,8 @@ class OpenAlex:
         "relevance_score",
         "publication_date",
         "publication_year",
-        "referenced_works"
+        "referenced_works",
+        "cited_by_count"
     ]
 
     def __init__(self):
