@@ -1,5 +1,6 @@
 import hashlib
 import json
+import datetime as dt
 from open_alex import OpenAlex
 from cache_data import Cache
 from graph import Graph
@@ -35,6 +36,8 @@ def get_hash_key():
 
     hashed_value = hashlib.sha256(str(hash_data).encode()).hexdigest()
 
+    hash_data['executed_at'] = dt.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+
     # Serializing json
     json_data = json.dumps(hash_data, indent=4)
     with open(f"cache/key_overview/{hashed_value}.json", "w") as outfile:
@@ -65,14 +68,14 @@ if __name__ == '__main__':
 
     graph = Graph(references, CONFLICT_TYPES)
 
-    graph.import_from_file('all-v2')
-    graph.statistics()
-    graph.ei_index()
-
-    # graph.build_co_citation(
-    #     cited_by_cutoff=10,
-    #     relevance_score_cuttoff=5.0
-    # )
+    # graph.import_from_file('all-v2')
     # graph.statistics()
+    # graph.ei_index()
+
+    graph.build_co_citation(
+        cited_by_cutoff=10,
+        relevance_score_cuttoff=5.0
+    )
+    graph.statistics()
     # graph.ei_index()
     # graph.store_to_file("all-10-cited_by")
