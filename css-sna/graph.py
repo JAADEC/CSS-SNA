@@ -14,6 +14,22 @@ class Graph:
         "gexf": nx.read_gexf,
     }
 
+    CONVERTED_ATTRIBUTES = [
+        "Modularity Class", 
+        "Eigenvector Centrality",
+        "size",
+        "r",
+        "g",
+        "b",
+        "x",
+        "y",
+    ]
+
+    MAPPING = {
+        "https://openalex.org/W2120946983": "https://openalex.org/W4391965190",
+        "https://openalex.org/W2120946983": "https://openalex.org/W4391965190",
+    }
+
     def __init__(self, references: dict, conflict_types: list, directed = False):
         self.references = references
         self.conflict_types = conflict_types
@@ -46,6 +62,7 @@ class Graph:
                 first_author=author,
                 cited_by=reference['cited_by_count'],
                 cited_by_dataset=cited_by,
+                type=reference['type'],
                 **conflict_search
             )
         else:
@@ -89,14 +106,37 @@ class Graph:
             print(f"{name}:{whitespace}{value}")
         print("-------------------------------------------------------------------------------")
 
-    def import_from_file(self, filename: str):
+    def use_reference_graph(self, filename: str):
+        reference: Graph = None
+
         for format, importer in self.IMPORT_FORMATS.items():
             if file := self.get_path(filename, format):
                 print(f"Importing '{file}'")
-                self.graph = importer(file)
-                return
-            
-        print(f"'{filename}' not found")
+                reference = importer(file)
+                break
+        
+        if not reference:
+            print(f"'{filename}' not found")
+            return
+        else:
+            print(f"Reference graph contains {len(reference.nodes())} nodes")
+
+        removed = set()
+        attributes = dict()
+
+        for node_id in self.graph.nodes():
+            if not node_id in reference.nodes():
+                removed.add(node_id)
+            else:
+                attributes[node_id] = {}
+                for attr in self.CONVERTED_ATTRIBUTES:
+                    attributes[node_id][attr] = reference.nodes[node_id][attr]
+
+        print(f"Will remove {len(removed)} nodes from graph")
+        self.graph.remove_nodes_from(removed)
+
+        print(f"Convert attributes from reference graph")
+        nx.set_node_attributes(self.graph, attributes)
 
     def get_path(self, filename: str, extention: str):
         file = file = f"{self.FOLDER}/{filename}.{extention}"
@@ -110,10 +150,11 @@ class Graph:
         filedate = now.strftime(self.FILE_TIME_FORMAT)
 
         if not filename:
-            file = f"{self.FOLDER}/{filedate}.gexf"
+            file = f"{self.FOLDER}/{filedate}"
         else:
-            file = f"{self.FOLDER}/{filedate}_{filename}.gexf"
-        nx.write_gexf(self.graph, file)
+            file = f"{self.FOLDER}/{filedate}_{filename}"
+        nx.write_gexf(self.graph, f"{file}.gexf")
+        nx.write_graphml(self.graph, f"{file}.graphml", named_key_ids=True)
 
     def build_co_citation(self, cited_by_cutoff = 1, cited_by_cutoff_year = None, co_cite_cutoff = 1, jaccard_cuttoff = 0.0, references_cuttoff_year = None, relevance_score_cuttoff = 0.0):
         print("Calculating referenced by measure")

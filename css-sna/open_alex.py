@@ -12,7 +12,8 @@ class OpenAlex:
         "publication_date",
         "publication_year",
         "referenced_works",
-        "cited_by_count"
+        "cited_by_count",
+        "type",
     ]
 
     def __init__(self):
