@@ -14,20 +14,21 @@ class Graph:
         "gexf": nx.read_gexf,
     }
 
-    CONVERTED_ATTRIBUTES = [
-        "Modularity Class", 
-        "Eigenvector Centrality",
-        "size",
-        "r",
-        "g",
-        "b",
-        "x",
-        "y",
-    ]
+    CONVERTED_ATTRIBUTES = {
+        "Modularity Class": 'modul_class', 
+        "Eigenvector Centrality": 'eig_centr',
+        "size": "size",
+        "r": "r",
+        "g": "g",
+        "b": "b",
+        "x": "x",
+        "y": "y",
+    }
 
-    MAPPING = {
+    KEY_MAPPING = {
         "https://openalex.org/W2120946983": "https://openalex.org/W4391965190",
-        "https://openalex.org/W2120946983": "https://openalex.org/W4391965190",
+        "https://openalex.org/W2324656367": "https://openalex.org/W4391965190",
+        "https://openalex.org/W2328035621": "https://openalex.org/W4391965190",
     }
 
     def __init__(self, references: dict, conflict_types: list, directed = False):
@@ -63,16 +64,22 @@ class Graph:
                 cited_by=reference['cited_by_count'],
                 cited_by_dataset=cited_by,
                 type=reference['type'],
+                topics=','.join([topic['display_name'] for topic in reference['topics']]),
+                keywords=','.join([keyword['display_name'] for keyword in reference['keywords']]),
+                concepts=','.join([concept['display_name'] for concept in reference['concepts']]),
                 **conflict_search
             )
         else:
             print(f"Reference with key {key} not found in references set")
 
-    def ei_index(self, module_index: str = "Modularity Class"):
+    def ei_index(self, module_index: str = "modul_class"):
         print("Calculating e-i index")
         external = 0
         internal = 0
         for node1, node2 in self.graph.edges():
+            if (not module_index in self.graph.nodes[node1]) or (not module_index in self.graph.nodes[node2]):
+                continue
+
             if self.graph.nodes[node1][module_index] == self.graph.nodes[node2][module_index]:
                 internal += 1
             else:
@@ -106,7 +113,7 @@ class Graph:
             print(f"{name}:{whitespace}{value}")
         print("-------------------------------------------------------------------------------")
 
-    def use_reference_graph(self, filename: str):
+    def use_reference_graph(self, filename: str, remove_nodes: bool = True):
         reference: Graph = None
 
         for format, importer in self.IMPORT_FORMATS.items():
@@ -129,11 +136,12 @@ class Graph:
                 removed.add(node_id)
             else:
                 attributes[node_id] = {}
-                for attr in self.CONVERTED_ATTRIBUTES:
-                    attributes[node_id][attr] = reference.nodes[node_id][attr]
+                for attr_from, attr_to in self.CONVERTED_ATTRIBUTES.items():
+                    attributes[node_id][attr_to] = reference.nodes[node_id][attr_from]
 
-        print(f"Will remove {len(removed)} nodes from graph")
-        self.graph.remove_nodes_from(removed)
+        if remove_nodes:
+            print(f"Will remove {len(removed)} nodes from graph")
+            self.graph.remove_nodes_from(removed)
 
         print(f"Convert attributes from reference graph")
         nx.set_node_attributes(self.graph, attributes)
@@ -162,6 +170,8 @@ class Graph:
         for reference in self.references.values():
             if not cited_by_cutoff_year or reference['publication_year'] >= cited_by_cutoff_year:
                 for referenced in reference['referenced_works']:
+                    referenced = self.KEY_MAPPING.get(referenced, referenced)
+
                     if referenced in self.references and (not references_cuttoff_year or self.references[referenced]['publication_year'] >= references_cuttoff_year) and self.references[referenced]['relevance_score'] > relevance_score_cuttoff:
                         if not referenced in referenced_by_count:
                             referenced_by_count[referenced] = 0
@@ -207,7 +217,6 @@ class Graph:
                 to_reference = self.references.get(b)
                 if jaccard_index >= jaccard_cuttoff:
                     self.graph.add_edge(a, b, label=f"{from_reference['title']} - {to_reference['title']}", weight=jaccard_index, jaccard_index=jaccard_index, count=combination_count)
-
 
     def build_citation(self):
         print("Creating nodes")

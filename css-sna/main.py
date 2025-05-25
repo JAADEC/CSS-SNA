@@ -10,7 +10,9 @@ TERMS = [
     "olson",
     "tullock",
     "public choice",
-    "rational choice"
+    "rational choice",
+    "free riding",
+    "free rider",
 ]
 
 CONFLICT_TYPES = [
@@ -18,7 +20,8 @@ CONFLICT_TYPES = [
     "rebellion",
     "civil war",
     "unrest",
-    "uprising"
+    "uprising",
+    "insurgency",
 ]
 
 FILTERS = {
@@ -73,7 +76,7 @@ if __name__ == '__main__':
         relevance_score_cuttoff=5.0
     )
     graph.statistics()
-    graph.use_reference_graph("report")
+    graph.use_reference_graph("25-05-v5")
     graph.statistics()
     graph.ei_index()
     graph.store_to_file("filtered")
