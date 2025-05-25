@@ -14,6 +14,9 @@ class OpenAlex:
         "referenced_works",
         "cited_by_count",
         "type",
+        "topics",
+        "keywords",
+        "concepts",
     ]
 
     def __init__(self):
