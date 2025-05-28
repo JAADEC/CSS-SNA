@@ -1,0 +1,327 @@
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            3
+Total included in class:                                     142
+
+------------------------------------ TOPICS
+Political Conflict and Governance:                           25.35% | 36
+Electoral Systems and Political Participation:               17.61% | 25
+Social Capital and Networks:                                 16.90% | 24
+Social Media and Politics:                                   14.79% | 21
+Social and Cultural Dynamics:                                11.27% | 16
+Political Economy and Marxism:                               7.04% | 10
+Religion and Society Interactions:                           6.34% | 9
+Nonprofit Sector and Volunteering:                           5.63% | 8
+Evolutionary Game Theory and Cooperation:                    5.63% | 8
+Culture, Economy, and Development Studies:                   4.93% | 7
+
+------------------------------------ CONCEPTS
+Political science:                                           88.03% | 125
+Law:                                                         80.99% | 115
+Sociology:                                                   77.46% | 110
+Politics:                                                    76.76% | 109
+Economics:                                                   42.96% | 61
+Political economy:                                           35.21% | 50
+Physics:                                                     34.51% | 49
+Computer science:                                            33.80% | 48
+Philosophy:                                                  32.39% | 46
+Psychology:                                                  31.69% | 45
+
+------------------------------------ KEYWORDS
+Collective Action:                                           26.76% | 38
+Mobilization:                                                8.45% | 12
+Resource mobilization:                                       7.04% | 10
+Contentious politics:                                        4.93% | 7
+Political opportunity:                                       4.23% | 6
+New social movements:                                        4.23% | 6
+Social movement theory:                                      3.52% | 5
+Social Theory:                                               3.52% | 5
+Political repression:                                        2.82% | 4
+Elite:                                                       2.82% | 4
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            1
+Total included in class:                                     110
+
+------------------------------------ TOPICS
+Political Conflict and Governance:                           52.73% | 58
+Corruption and Economic Development:                         21.82% | 24
+Electoral Systems and Political Participation:               17.27% | 19
+Culture, Economy, and Development Studies:                   17.27% | 19
+International Development and Aid:                           12.73% | 14
+Social Policy and Reform Studies:                            10.00% | 11
+International Relations and Foreign Policy:                  9.09% | 10
+Historical and Contemporary Political Dynamics:              5.45% | 6
+Defense, Military, and Policy Studies:                       5.45% | 6
+Income, Poverty, and Inequality:                             5.45% | 6
+
+------------------------------------ CONCEPTS
+Political science:                                           96.36% | 106
+Law:                                                         94.55% | 104
+Politics:                                                    87.27% | 96
+Economics:                                                   76.36% | 84
+Democracy:                                                   66.36% | 73
+Political economy:                                           60.91% | 67
+Sociology:                                                   40.00% | 44
+Philosophy:                                                  27.27% | 30
+Computer science:                                            25.45% | 28
+Economic system:                                             25.45% | 28
+
+------------------------------------ KEYWORDS
+Autocracy:                                                   24.55% | 27
+Dictatorship:                                                19.09% | 21
+Dictator:                                                    8.18% | 9
+Opposition (politics):                                       8.18% | 9
+Elite:                                                       7.27% | 8
+Argument (complex analysis):                                 6.36% | 7
+Economic rent:                                               5.45% | 6
+Collective Action:                                           2.73% | 3
+Ruler:                                                       2.73% | 3
+Phenomenon:                                                  2.73% | 3
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            0
+Total included in class:                                     169
+
+------------------------------------ TOPICS
+Political Conflict and Governance:                           63.91% | 108
+Culture, Economy, and Development Studies:                   27.81% | 47
+International Development and Aid:                           11.83% | 20
+Religion and Society Interactions:                           11.24% | 19
+Politics and Conflicts in Afghanistan, Pakistan, and Middle East:10.65% | 18
+Natural Resources and Economic Development:                  10.65% | 18
+Corruption and Economic Development:                         10.06% | 17
+Agricultural risk and resilience:                            9.47% | 16
+Terrorism, Counterterrorism, and Political Violence:         8.88% | 15
+Religion, Society, and Development:                          8.28% | 14
+
+------------------------------------ CONCEPTS
+Political science:                                           92.31% | 156
+Law:                                                         86.98% | 147
+Economics:                                                   72.78% | 123
+Politics:                                                    65.09% | 110
+Sociology:                                                   63.31% | 107
+Political economy:                                           47.93% | 81
+Computer science:                                            45.56% | 77
+Spanish Civil War:                                           33.73% | 57
+Development economics:                                       33.73% | 57
+Philosophy:                                                  29.59% | 50
+
+------------------------------------ KEYWORDS
+Ethnic conflict:                                             13.02% | 22
+Civil Conflict:                                              10.06% | 17
+Grievance:                                                   8.28% | 14
+Collective Action:                                           7.10% | 12
+Opposition (politics):                                       4.14% | 7
+Resource Curse:                                              4.14% | 7
+Economic rent:                                               4.14% | 7
+Fractionalization:                                           3.55% | 6
+Affect:                                                      3.55% | 6
+Political repression:                                        2.96% | 5
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            2
+Total included in class:                                     172
+
+------------------------------------ TOPICS
+Fiscal Policy and Economic Growth:                           21.51% | 37
+Culture, Economy, and Development Studies:                   19.19% | 33
+Corruption and Economic Development:                         19.19% | 33
+International Development and Aid:                           13.37% | 23
+Economic Theory and Institutions:                            12.79% | 22
+Economic Growth and Development:                             12.21% | 21
+Economic Growth and Productivity:                            10.47% | 18
+Local Government Finance and Decentralization:               9.88% | 17
+Economic Theory and Policy:                                  8.14% | 14
+Historical Economic and Social Studies:                      7.56% | 13
+
+------------------------------------ CONCEPTS
+Economics:                                                   86.63% | 149
+Political science:                                           80.81% | 139
+Law:                                                         70.93% | 122
+Politics:                                                    58.72% | 101
+Philosophy:                                                  35.47% | 61
+Computer science:                                            31.98% | 55
+Sociology:                                                   29.65% | 51
+Political economy:                                           25.58% | 44
+Development economics:                                       25.58% | 44
+Economic system:                                             22.67% | 39
+
+------------------------------------ KEYWORDS
+Investment:                                                  7.56% | 13
+Language Change:                                             4.65% | 8
+Institution:                                                 4.07% | 7
+Political instability:                                       3.49% | 6
+Dictatorship:                                                2.91% | 5
+Argument (complex analysis):                                 2.91% | 5
+Bureaucracy:                                                 2.91% | 5
+Sample (material):                                           2.91% | 5
+Rule of Law:                                                 2.33% | 4
+fiscal federalism:                                           2.33% | 4
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            5
+Total included in class:                                     143
+
+------------------------------------ TOPICS
+Social Policy and Reform Studies:                            20.98% | 30
+Political Conflict and Governance:                           19.58% | 28
+International Relations and Foreign Policy:                  17.48% | 25
+Economic Theory and Institutions:                            10.49% | 15
+Electoral Systems and Political Participation:               9.79% | 14
+International Development and Aid:                           9.09% | 13
+Qualitative Comparative Analysis Research:                   8.39% | 12
+Experimental Behavioral Economics Studies:                   7.69% | 11
+Decision-Making and Behavioral Economics:                    6.99% | 10
+Political Influence and Corporate Strategies:                5.59% | 8
+
+------------------------------------ CONCEPTS
+Political science:                                           81.12% | 116
+Law:                                                         72.03% | 103
+Sociology:                                                   71.33% | 102
+Politics:                                                    62.94% | 90
+Philosophy:                                                  55.94% | 80
+Economics:                                                   51.75% | 74
+Epistemology:                                                48.25% | 69
+Computer science:                                            39.86% | 57
+Positive economics:                                          29.37% | 42
+Psychology:                                                  25.87% | 37
+
+------------------------------------ KEYWORDS
+Institutionalism:                                            4.90% | 7
+Institutional Change:                                        4.90% | 7
+Corporatism:                                                 3.50% | 5
+Causation:                                                   3.50% | 5
+Constructivism (international relations):                    3.50% | 5
+New institutionalism:                                        2.80% | 4
+Path Dependence:                                             2.80% | 4
+Content (measure theory):                                    2.80% | 4
+Institutional Analysis:                                      2.10% | 3
+Bounded rationality:                                         2.10% | 3
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            6
+Total included in class:                                     36
+
+------------------------------------ TOPICS
+Terrorism, Counterterrorism, and Political Violence:         66.67% | 24
+Political Conflict and Governance:                           63.89% | 23
+Crime, Illicit Activities, and Governance:                   30.56% | 11
+Religion and Society Interactions:                           16.67% | 6
+Evolutionary Game Theory and Cooperation:                    5.56% | 2
+Cultural Differences and Values:                             5.56% | 2
+Politics and Conflicts in Afghanistan, Pakistan, and Middle East:5.56% | 2
+Crime Patterns and Interventions:                            5.56% | 2
+Political Economy and Marxism:                               5.56% | 2
+Culture, Economy, and Development Studies:                   5.56% | 2
+
+------------------------------------ CONCEPTS
+Political science:                                           100.00% | 36
+Law:                                                         94.44% | 34
+Terrorism:                                                   75.00% | 27
+Politics:                                                    72.22% | 26
+Economics:                                                   63.89% | 23
+Sociology:                                                   61.11% | 22
+Political economy:                                           52.78% | 19
+Computer science:                                            44.44% | 16
+Psychology:                                                  33.33% | 12
+Social psychology:                                           27.78% | 10
+
+------------------------------------ KEYWORDS
+Domestic terrorism:                                          11.11% | 4
+Civil Liberties:                                             8.33% | 3
+Argument (complex analysis):                                 8.33% | 3
+Coercion (linguistics):                                      5.56% | 2
+Irrational number:                                           5.56% | 2
+Appeasement:                                                 5.56% | 2
+Political Violence:                                          5.56% | 2
+Collective Action:                                           5.56% | 2
+Fractionalization:                                           5.56% | 2
+Followership:                                                2.78% | 1
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            4
+Total included in class:                                     21
+
+------------------------------------ TOPICS
+Political Conflict and Governance:                           38.10% | 8
+Disaster Management and Resilience:                          33.33% | 7
+Agricultural risk and resilience:                            33.33% | 7
+Transboundary Water Resource Management:                     33.33% | 7
+International Development and Aid:                           28.57% | 6
+Health and Conflict Studies:                                 19.05% | 4
+Rangeland Management and Livestock Ecology:                  14.29% | 3
+Climate Change, Adaptation, Migration:                       14.29% | 3
+Religion, Society, and Development:                          4.76% | 1
+Climate change impacts on agriculture:                       4.76% | 1
+
+------------------------------------ CONCEPTS
+Political science:                                           100.00% | 21
+Economics:                                                   80.95% | 17
+Law:                                                         80.95% | 17
+Development economics:                                       66.67% | 14
+Geography:                                                   66.67% | 14
+Natural disaster:                                            47.62% | 10
+Meteorology:                                                 47.62% | 10
+Politics:                                                    47.62% | 10
+Political economy:                                           47.62% | 10
+Computer science:                                            42.86% | 9
+
+------------------------------------ KEYWORDS
+Civil Conflict:                                              23.81% | 5
+Vulnerability:                                               9.52% | 2
+Empirical evidence:                                          9.52% | 2
+Armed Conflict:                                              9.52% | 2
+Natural hazard:                                              4.76% | 1
+Climate risk:                                                4.76% | 1
+Redress:                                                     4.76% | 1
+Argument (complex analysis):                                 4.76% | 1
+Corollary:                                                   4.76% | 1
+Mobilization:                                                4.76% | 1
+-------------------------------------------------------------------------------
+
+------------------------------------ STATS ------------------------------------
+Modularity class:                                            7
+Total included in class:                                     43
+
+------------------------------------ TOPICS
+Political Conflict and Governance:                           67.44% | 29
+Terrorism, Counterterrorism, and Political Violence:         25.58% | 11
+International Development and Aid:                           16.28% | 7
+International Relations and Foreign Policy:                  13.95% | 6
+Defense, Military, and Policy Studies:                       13.95% | 6
+Peacebuilding and International Security:                    13.95% | 6
+Politics and Conflicts in Afghanistan, Pakistan, and Middle East:13.95% | 6
+Religion and Society Interactions:                           9.30% | 4
+Culture, Economy, and Development Studies:                   9.30% | 4
+Experimental Behavioral Economics Studies:                   9.30% | 4
+
+------------------------------------ CONCEPTS
+Political science:                                           95.35% | 41
+Law:                                                         90.70% | 39
+Economics:                                                   83.72% | 36
+Politics:                                                    51.16% | 22
+Political economy:                                           48.84% | 21
+Sociology:                                                   44.19% | 19
+Psychology:                                                  37.21% | 16
+Computer science:                                            34.88% | 15
+Development economics:                                       30.23% | 13
+Spanish Civil War:                                           27.91% | 12
+
+------------------------------------ KEYWORDS
+Argument (complex analysis):                                 9.30% | 4
+Civil Conflict:                                              6.98% | 3
+Free riding:                                                 6.98% | 3
+Peacekeeping:                                                6.98% | 3
+Economic Globalization:                                      4.65% | 2
+Affect:                                                      4.65% | 2
+Civil Society:                                               4.65% | 2
+Domestic terrorism:                                          4.65% | 2
+Appropriation:                                               4.65% | 2
+Settlement (finance):                                        4.65% | 2
+-------------------------------------------------------------------------------

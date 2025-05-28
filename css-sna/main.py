@@ -76,7 +76,12 @@ if __name__ == '__main__':
         relevance_score_cuttoff=5.0
     )
     graph.statistics()
-    graph.use_reference_graph("25-05-v5")
+    graph.use_reference_graph("structure")
     graph.statistics()
-    graph.ei_index()
-    graph.store_to_file("filtered")
+    graph.upload_to_graphistry()
+    # graph.ei_index()
+    # graph.betweenness(0, 3)
+    # graph.get_hex_color()
+    # graph.count(most_common=10)
+
+    # graph.store_to_file("all")
