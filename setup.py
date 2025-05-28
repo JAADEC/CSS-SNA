@@ -16,6 +16,8 @@ setup(
        'setuptools',
        'networkx',
        'matplotlib',
-       'pandas'
+       'pandas',
+       'graphistry',
+       'python-dotenv'
     ],
 )

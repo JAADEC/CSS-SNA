@@ -2,11 +2,15 @@ import networkx as nx
 import pandas as pd
 import itertools as it
 import datetime as dt
+import collections as cl
+import numbers as num
 import os
+from graphistry_api import Graphistry
 
 class Graph:
     FOLDER = 'data'
     FILE_TIME_FORMAT = '%Y-%m-%d-%H-%M-%S'
+    SPLIT_CHARACTER = ';'
     UPDATE_COUNT = 1000000
     IMPORT_FORMATS = {
         "graphml": nx.read_graphml,
@@ -31,17 +35,13 @@ class Graph:
         "https://openalex.org/W2328035621": "https://openalex.org/W4391965190",
     }
 
-    def __init__(self, references: dict, conflict_types: list, directed = False):
+    def __init__(self, references: dict, conflict_types: list):
         self.references = references
         self.conflict_types = conflict_types
-        self.directed = directed
         self.reset_graph()
 
     def reset_graph(self):
-        if self.directed:
-            self.graph = nx.DiGraph()
-        else:
-            self.graph = nx.Graph()
+        self.graph = nx.Graph()
 
     def add_reference_node(self, key, cited_by: int = -1):
         if key in self.references:
@@ -64,13 +64,28 @@ class Graph:
                 cited_by=reference['cited_by_count'],
                 cited_by_dataset=cited_by,
                 type=reference['type'],
-                topics=','.join([topic['display_name'] for topic in reference['topics']]),
-                keywords=','.join([keyword['display_name'] for keyword in reference['keywords']]),
-                concepts=','.join([concept['display_name'] for concept in reference['concepts']]),
+                topics=self.SPLIT_CHARACTER.join([topic['display_name'] for topic in reference['topics']]),
+                keywords=self.SPLIT_CHARACTER.join([keyword['display_name'] for keyword in reference['keywords']]),
+                concepts=self.SPLIT_CHARACTER.join([concept['display_name'] for concept in reference['concepts']]),
                 **conflict_search
             )
         else:
             print(f"Reference with key {key} not found in references set")
+
+    def key_by_modularity(self, module_index: str = "modul_class"):
+        modularities = dict()
+        
+        for node_id in self.graph.nodes():
+            if not module_index in self.graph.nodes[node_id]:
+                continue
+
+            module_class = self.graph.nodes[node_id][module_index]
+            if not module_class in modularities:
+                modularities[module_class] = []
+
+            modularities[module_class].append(node_id)
+
+        return modularities
 
     def ei_index(self, module_index: str = "modul_class"):
         print("Calculating e-i index")
@@ -91,6 +106,61 @@ class Graph:
             "E-I index": ei
         })
 
+    def betweenness(self, cluster_source, cluster_traget, weights: str = None, module_index: str = "modul_class"):
+        if cluster_source == cluster_traget:
+            print("Clusters cannot be the same")
+            return
+
+        modularities = self.key_by_modularity(module_index)
+
+        if not cluster_source in modularities:
+            print(f"Cannot find cluster {cluster_source}, possible clusters: {list(modularities.keys())}")
+            return
+        
+        if not cluster_traget in modularities:
+            print(f"Cannot find cluster {cluster_traget}, possible clusters: {list(modularities.keys())}")
+            return
+
+        betweenness = nx.betweenness_centrality_subset(
+            self.graph,
+            sources=modularities.get(cluster_source),
+            targets=modularities.get(cluster_traget),
+            normalized=True,
+            weight=weights,
+        )
+
+        sorted_bridges = sorted(betweenness.items(), key=lambda x: x[1], reverse=True)
+
+        self.print_stats({
+            "Nodes": f"{cluster_source} <> {cluster_traget}",
+            0: "Most common bridges",
+            **dict([(self.graph.nodes[key]['label'], value) for (key, value) in sorted_bridges[:10]]),
+        }, 120)
+
+    def count(self, most_common: int = 3, module_index: str = "modul_class"):
+        flat_map = lambda f, xs: (y for ys in xs for y in f(ys))
+
+        modularities = self.key_by_modularity(module_index)
+
+        for modularity_class, modularity_nodes in modularities.items():
+            total = len(modularity_nodes)
+
+            topics = cl.Counter(flat_map(lambda node_id: self.graph.nodes[node_id]['topics'].split(self.SPLIT_CHARACTER), modularity_nodes))
+            keywords = cl.Counter(filter(None, flat_map(lambda node_id: self.graph.nodes[node_id]['keywords'].split(self.SPLIT_CHARACTER), modularity_nodes)))
+            concepts = cl.Counter(flat_map(lambda node_id: self.graph.nodes[node_id]['concepts'].split(self.SPLIT_CHARACTER), modularity_nodes))
+
+            self.print_stats({
+                "Modularity class": modularity_class,
+                "Total included in class": total,
+                0: "Topics",
+                **dict([(key, f"{count/total:.2%} | {count}") for (key, count) in topics.most_common(most_common)]),
+                1: "Concepts",
+                **dict([(key, f"{count/total:.2%} | {count}") for (key, count) in concepts.most_common(most_common)]),
+                2: "Keywords",
+                **dict([(key, f"{count/total:.2%} | {count}") for (key, count) in keywords.most_common(most_common)]),
+            }, 60)
+
+
     def statistics(self):
         num_nodes = self.graph.number_of_nodes()
         num_edges = self.graph.number_of_edges()
@@ -104,12 +174,25 @@ class Graph:
             "Average clustering coefficient": avg_clustering,
         })
 
-    def print_stats(self, stats: dict):
+    def get_hex_color(self, module_index: str = "modul_class"):
+        modularities = self.key_by_modularity(module_index)
+
+        for (cluster_key, references) in modularities.items():
+            print(cluster_key)
+            reference = self.graph.nodes[references[0]]
+            print('#%02x%02x%02x' % (reference['r'], reference['g'], reference['b']))
+
+    def print_stats(self, stats: dict, spaces: int = 40):
         # Print the results
         print()
         print("------------------------------------ STATS ------------------------------------")
         for name, value in stats.items():
-            whitespace = ' ' * (40 - len(name))
+            if isinstance(name, num.Number):
+                print()
+                print(f"------------------------------------ {value.upper()}")
+                continue
+
+            whitespace = ' ' * (spaces - len(name))
             print(f"{name}:{whitespace}{value}")
         print("-------------------------------------------------------------------------------")
 
@@ -139,6 +222,10 @@ class Graph:
                 for attr_from, attr_to in self.CONVERTED_ATTRIBUTES.items():
                     attributes[node_id][attr_to] = reference.nodes[node_id][attr_from]
 
+                rgba = 255 | (reference.nodes[node_id]['b'] << 8) | (reference.nodes[node_id]['g'] << 16) | (reference.nodes[node_id]['r'] << 24)  
+                attributes[node_id]['rgba'] = rgba
+
+
         if remove_nodes:
             print(f"Will remove {len(removed)} nodes from graph")
             self.graph.remove_nodes_from(removed)
@@ -163,6 +250,13 @@ class Graph:
             file = f"{self.FOLDER}/{filedate}_{filename}"
         nx.write_gexf(self.graph, f"{file}.gexf")
         nx.write_graphml(self.graph, f"{file}.graphml", named_key_ids=True)
+
+    def upload_to_graphistry(self):
+        graphistry = Graphistry()        
+        graphistry.upload_graph(self.graph)
+        
+
+        # graphistry.register(api=3, protocol="https", )
 
     def build_co_citation(self, cited_by_cutoff = 1, cited_by_cutoff_year = None, co_cite_cutoff = 1, jaccard_cuttoff = 0.0, references_cuttoff_year = None, relevance_score_cuttoff = 0.0):
         print("Calculating referenced by measure")
@@ -216,7 +310,7 @@ class Graph:
                 from_reference = self.references.get(a)
                 to_reference = self.references.get(b)
                 if jaccard_index >= jaccard_cuttoff:
-                    self.graph.add_edge(a, b, label=f"{from_reference['title']} - {to_reference['title']}", weight=jaccard_index, jaccard_index=jaccard_index, count=combination_count)
+                    self.graph.add_edge(a, b, label=f"{from_reference['title']} - {to_reference['title']}", weight=jaccard_index, jaccard_index=jaccard_index, count=combination_count, type="Undirected")
 
     def build_citation(self):
         print("Creating nodes")

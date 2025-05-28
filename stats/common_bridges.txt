@@ -1,0 +1,14 @@
+------------------------------------ STATS ------------------------------------
+Modularities:                                                                                                            0 <> 3
+
+------------------------------------ MOST COMMON BRIDGES
+The Logic of Collective Action - Mancur Olson:                                                                           0.007309682501618267
+Greed and grievance in civil war - Paul Collier:                                                                         0.002755957763778947
+The rebel's dilemma - Mark Lichbach:                                                                                     0.0012269777675425952
+Dictatorship, Democracy, and Development - Mancur Olson:                                                                 0.0011250498349180502
+The Political Economy of Death Squads: Toward a Theory of the Impact of State-Sanctioned Terror - T. David Mason:        0.0009619494133407579
+The paradox of revolution - Gordon Tullock:                                                                              0.0007381492899706867
+Recruitment and Allegiance - Scott Gates:                                                                                0.0007353054785599367
+Foundations of Social Theory - Frederick C. Gamst:                                                                       0.0005876524893065055
+Beyond greed and grievance: feasibility and civil war - Paul Collier:                                                    0.0005636610977072325
+How “Free” is Free Riding in Civil Wars?: Violence, Insurgency, and the Collective Action Problem - Stathis N. Kalyvas:  0.0005120139178882977
